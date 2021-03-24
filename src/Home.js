@@ -11,9 +11,20 @@ import Users from "./Users";
 //props -- cannot be updated , can be used in the whole project , used to transfer data between components --> parent to child components
 
 
+// parent to child using props
+
+// one page to another page using location and history via routing
+
+// child to parent using props callback functions
+
+//using Links and localstorage
+
+
 
 
 const Home = (props) =>{
+
+    
 
     useEffect( () => {
 
@@ -23,7 +34,17 @@ const Home = (props) =>{
 
     
 
+   
+
+
+
+
+
     const [userData , setUsers ] = useState([]);
+
+
+    
+
 
     const [object , setFormData ] = useState({});
 
@@ -113,11 +134,38 @@ const Home = (props) =>{
         
     }
 
-    const handleApiResponse = (data) =>{
+    
+    
+    
+    const handleApiResponse = (data) => {
+
+        let apiurl = "https://jsonplaceholder.typicode.com/students";
+
+        let object = {};
+        object['users'] = data;
+        
+        
+        let body = data;
+
+        let headers = {};
+        headers["Content-type"] = "application/json;Charset=UTF-8";
+
+        fetch(apiurl,{
+            body : JSON.stringify(body),
+            headers : headers,
+            method : 'POST'
+        })
+        .then(res=> res.json())
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+
+        setUsers(data);
         console.log(data)
     }
-    
-    
     
     
 
@@ -125,7 +173,26 @@ const Home = (props) =>{
         <>
            <h1>This is a home page</h1>
 
-           <Users  onSendData = { (data) => handleApiResponse(data) } />
+           {
+               userData.map( (object,index)=>{
+                    return(
+                        <p> { object.name } </p>
+                    )
+
+               })
+           }
+           
+           <Link to={
+               {
+                   pathname : '/about',
+                   state : userData
+               }
+           } >
+            About Us
+           </Link>
+
+            <Users onSendData = {  (data) => handleApiResponse(data) } />
+           
 
            <form onSubmit={ (e) => e.preventDefault() }>
 

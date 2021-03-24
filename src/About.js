@@ -10,12 +10,12 @@ import React , {useState,useEffect} from "react";
 
 const About = (props) =>{
 
-    console.log(props.location.data)
+    console.log(props.location.state)
 
-    const [datafromprops , saveDatafromprops] = useState({});
+    //const [datafromprops , saveDatafromprops] = useState({});
 
     useEffect( ()=>{
-        saveDatafromprops(props.location.data)
+        //saveDatafromprops(props.location.data)
     } , [])
 
     
@@ -24,9 +24,9 @@ const About = (props) =>{
         <>
            <h1>This is a about page</h1>
 
-            <p> Email - { datafromprops.email ? datafromprops.email : '' } </p>
+            {/* <p> Email - { datafromprops.email ? datafromprops.email : '' } </p>
             <p> Firstname - { datafromprops.firstname ? datafromprops.firstname : '' } </p>
-            <p> Lastname - { datafromprops.lastname ? datafromprops.lastname : '' } </p>
+            <p> Lastname - { datafromprops.lastname ? datafromprops.lastname : '' } </p> */}
 
 
             
