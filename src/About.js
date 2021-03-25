@@ -18,6 +18,10 @@ const About = (props) =>{
 
         let object = localStorage.getItem("object"); //stringified
 
+      
+      
+
+      
         object = JSON.parse(object) // converted to json object
         
         console.log(object);
