@@ -15,6 +15,13 @@ const About = (props) =>{
     //const [datafromprops , saveDatafromprops] = useState({});
 
     useEffect( ()=>{
+
+        let object = localStorage.getItem("object"); //stringified
+
+        object = JSON.parse(object) // converted to json object
+        
+        console.log(object);
+
         //saveDatafromprops(props.location.data)
     } , [])
 

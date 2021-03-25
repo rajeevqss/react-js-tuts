@@ -28,6 +28,13 @@ const Home = (props) =>{
 
     useEffect( () => {
 
+        let obj = {};
+        obj['name'] = "abc"
+        obj['age'] = "12"
+
+        
+
+        localStorage.setItem('object', JSON.stringify(obj) ); // globally accessible to all pages
         
 
     } , [])
