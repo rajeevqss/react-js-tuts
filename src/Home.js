@@ -1,8 +1,10 @@
 import { render } from "@testing-library/react";
 import React , {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
-
 import Users from "./Users";
+
+import {CallAPI, checkAge } from "./Utils"
+
 
 //import Header from './Header'
 //state is an object and is a collection of variables
@@ -27,6 +29,27 @@ const Home = (props) =>{
     
 
     useEffect( () => {
+
+
+        //check for api that user is verified then proceed
+
+        
+
+
+        let result = checkAge(2); // true or false
+
+        alert(result);
+
+
+
+        CallAPI("https://jsonplaceholder.typicode.com/users")
+        .then(res=> {
+            console.log(res)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+        
 
         let obj = {};
         obj['name'] = "abc"

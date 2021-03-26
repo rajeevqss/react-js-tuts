@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React , {useState,useEffect} from "react";
+import {CallAPI,checkAge} from './Utils'
 //import Header from './Header'
 //state is an object and is a collection of variables
 //spread operators ...
@@ -15,6 +16,19 @@ const About = (props) =>{
     //const [datafromprops , saveDatafromprops] = useState({});
 
     useEffect( ()=>{
+
+        let result = checkAge(20);
+
+        alert(result)
+
+        // CallAPI("https://jsonplaceholder.typicode.com/users")
+        // .then(res=>{
+        //     console.log(res)
+        // })
+        // .catch(err=>{
+        //     console.log(err)
+        // })
+
 
         let object = localStorage.getItem("object"); //stringified
 
