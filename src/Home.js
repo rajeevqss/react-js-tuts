@@ -28,7 +28,10 @@ const Home = (props) =>{
 
     
 
-    useEffect( () => {
+    useEffect(  () => {
+
+       
+        getusers();
 
 
         //check for api that user is verified then proceed
@@ -38,9 +41,9 @@ const Home = (props) =>{
 
         let result = checkAge(2); // true or false
 
-        alert(result);
+        
 
-
+        
 
         CallAPI("https://jsonplaceholder.typicode.com/users")
         .then(res=> {
@@ -64,7 +67,14 @@ const Home = (props) =>{
 
     
 
-   
+   const getusers = async () =>{
+    let users = await fetch("url");
+    users  = await users.json();
+    return users;
+    
+
+
+   }
 
 
 
