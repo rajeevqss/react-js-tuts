@@ -28,10 +28,12 @@ const Home = (props) =>{
 
     
 
-    useEffect(  () => {
+    useEffect( async () => {
 
        
         getusers();
+
+        
 
 
         //check for api that user is verified then proceed
